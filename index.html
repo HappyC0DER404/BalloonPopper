@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            align-items: center;
+            background-color: yellow;
+        }
+        button{
+            background-color: blue;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            cursor: pointer; font-size: 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        #Balloon{
+            font-size: 50px;
+            margin: 20px;
+            display: block;
+        }
+        #Reset{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="Increase" onclick="Increasesize()">Make Balloon Bigger</button>
+    <div id="Balloon">🎈</div>
+    <button id="Reset" onclick="Resetsize()">Reset Balloon</button>
+    
+
+    <script>
+        let Balloon= document.getElementById("Balloon")
+        let Increasebtn=document.getElementById("Increase")
+        let Resetbtn=document.getElementById("Reset")
+        let size=50
+        let maxsize=350
+        
+        function Increasesize(){
+            if (size<maxsize) {
+                size+=10
+                Balloon.style.fontSize=size+"px"
+            } else {
+                Balloon.innerText="💥"
+                Resetbtn.style.display='inline-block'
+                Increasebtn.innerText='Oops! It burst!'
+                Increasebtn.disable=true
+            }
+            
+        }
+        function Resetsize(){
+            size=50
+             Balloon.style.fontSize=size+"px"
+             Increasebtn.disable=false
+             Balloon.innerHTML="🎈"
+             Resetbtn.style.display="none"
+             Increasebtn.innerText='Make Balloon Bigger'
+        }
+    </script>
+</body>
+</html>
